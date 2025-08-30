@@ -4,16 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Kigali Weather Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <!-- MirageJS for API simulation -->
     <script src="https://unpkg.com/miragejs@0.1.47/dist/mirage-esm.js"></script>
 </head>
 
 <body>
-    <div id="default">Weather Issue Live Problem Solving</div>
+    <div class="container">
+        <header class="header">
+            <h1>Kigali Weather Dashboard</h1>
+            <p class="subtitle">Real-time weather for Kigali districts</p>
+        </header>
 
-    <!--Scripts-->
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search areas..." class="search-input">
+            </div>
+            <div class="filter-container">
+                <select id="eventFilter" class="filter-select">
+                    <option value="all">All Events</option>
+                    <option value="suitable">Suitable</option>
+                    <option value="caution">Caution</option>
+                    <option value="unsuitable">Unsuitable</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="content">
+            <main class="main-content">
+                <div id="loadingState" class="loading">Loading weather data...</div>
+                <div id="errorState" class="error hidden">Failed to load weather data. Please try again.</div>
+                <div id="weatherGrid" class="weather-grid hidden"></div>
+            </main>
+
+            <aside class="favorites-section">
+                <h2>Favorites</h2>
+                <div id="favoritesList" class="favorites-list">
+                    <p class="no-favorites">No favorites added yet</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div id="detailModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script type="module" src="server/server.js"></script>
     <script type="module" src="script.js"></script>
 </body>
