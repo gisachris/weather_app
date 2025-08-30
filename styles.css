@@ -1,0 +1,8 @@
+#default {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 90vh;
+    font-size: 50px;
+}
